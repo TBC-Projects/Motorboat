@@ -46,7 +46,7 @@ void setup()
   esp_now_register_send_cb(OnDataSent);
 
   /*
-
+  Using memcpy to as opposed to direct assignment because we need to copy in the entire
   */
   memcpy(peerInfo.peer_addr, broadcastAddress, 6);
   peerInfo.channel = 0;
