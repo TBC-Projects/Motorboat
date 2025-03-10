@@ -11,6 +11,11 @@ int lastStateCLK;
 unsigned long lastDebounceTime = 0;
 const int debounceDelay = 10;
 
+/*
+The function readEncoder should be declared as an interupt service routine, (ISR), because this
+way the main loop, loop(), doesn't have to continuously check the encoder for changes in the
+ENCODER_CLK, it automatically goes to this function when a change is detected
+*/
 void IRAM_ATTR readEncoder()
 {
   unsigned long currentTime = millis();
